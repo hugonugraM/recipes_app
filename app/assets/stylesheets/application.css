@@ -4,6 +4,11 @@
   *= require_self
 */
 
+.left_recipes_side {
+  border-right: 4px solid #47d7ac ;
+}
+
 .recipe_item {
   margin-bottom: 1em;
+  background-color: #ffcd00;
 }
