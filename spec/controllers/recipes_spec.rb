@@ -17,14 +17,14 @@ RSpec.describe RecipesController do
 
   describe "GET show" do
     it "renders the SHOW template" do
-      get :show
+      get :show, params: { id: "4dT8tcb6ukGSIg2YyuGEOm" }
       expect(response).to render_template("show")
     end
   end
 
   describe "200 status on SHOW index" do
     it "has a 200 status code" do
-      get :show
+      get :show, params: { id: "4dT8tcb6ukGSIg2YyuGEOm" }
       expect(response.status).to eq(200)
     end
   end
