@@ -1,3 +1,5 @@
+<% @recipe = Recipe.find(id) %>
+
 <div class="card">
   <div class="card-header"> <h5> <%= @recipe.title %> </h5> <b> chef: </b> <%= @recipe.chef_name %> </div>
   <img class="card-img-top recipe_image" src= <%= @recipe.image %> >
@@ -8,4 +10,3 @@
     <p class="card-text"> <%= @recipe.description %> </p>
   </div>
 </div>
-

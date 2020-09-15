@@ -1,11 +1,11 @@
 class Recipe
-  attr_accessor :id, :title, :image, :list_of_tags, :description, :chef_name
+  attr_accessor :id, :title, :image, :tags, :description, :chef_name
 
   def initialize(id, title, image, list_of_tags = [], description = "", chef_name = "")
     @id = id
     @title = title
     @image = image
-    @list_of_tags = list_of_tags
+    @tags = list_of_tags
     @description = description
     @chef_name = chef_name
   end
@@ -24,15 +24,15 @@ class Recipe
     self.contentful.entries(content_type: 'recipe', include: 2).each do |recipe|
       chef_name = recipe.fields['chef'].nil? ? "-" : recipe.chef.name
       tags = recipe.fields['tags'].nil? ? [] : recipe.tags
-      all << Recipe.new(recipe.title, recipe.photo.url, tags.map{|tag| tag.name}.uniq, recipe.description, chef_name)
+      all << Recipe.new(recipe.id, recipe.title, recipe.photo.url, tags.map{|tag| tag.name}.uniq, recipe.description, chef_name)
     end
     all
   end
 
   def self.find(id)
     recipe = self.contentful.entry(id)
-    chef_name = recipe.fields['chef'].nil? ? "-" : recipe.chef.name
-    tags = recipe.fields['tags'].nil? ? [] : recipe.tags
+    chef_name = recipe.fields[:chef].nil? ? "-" : recipe.chef.name
+    tags = recipe.fields[:tags].nil? ? [] : recipe.tags
     Recipe.new(recipe.id, recipe.title, recipe.photo.url, tags.map{|tag| tag.name}.uniq, recipe.description, chef_name)
   end
 
