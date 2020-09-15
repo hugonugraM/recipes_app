@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application was built using Ruby on Rails 6 whitout ActiveRecord. It is because is a lightweight app and does not need a database or the whole ORM methods. Instead of it I used Pure Ruby classes and coded the needed methods because of that the position is for a pure ruby developer.
 
-Things you may want to cover:
+* Ruby version: 2.6.3
 
-* Ruby version
+* System dependencies: contenful, rspec
 
-* System dependencies
+* How to run the test suite: rspec
 
-* Configuration
+* How to run the test suite: rails s
 
-* Database creation
+The url of the recipes is: http://localhost:3000/recipes/
 
-* Database initialization
+I wanted to put a pretty UI and instead of showing two diferent views the layout is composed by the list at the left, and the details at the right. Internally it uses AJAX and pure javascript without Jquery to replace the detail view.
 
-* How to run the test suite
+* screenshot:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![alt text](screenshot.png "Screenshot")
