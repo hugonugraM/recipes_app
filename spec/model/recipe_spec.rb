@@ -7,10 +7,10 @@ RSpec.describe Recipe, :type => :model do
   end
 
   it "is not valid creating a new object without all params" do
-    expect(Recipe.new()).to_not be_valid
+    expect{Recipe.new()}.to raise_error(ArgumentError)
   end
 
-  it "list all recipes" do 
+  it "list all recipes" do
     expect(Recipe.all.length).to be > 0
   end
 
