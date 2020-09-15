@@ -8,7 +8,7 @@ This application was built using Ruby on Rails 6 whitout ActiveRecord. It is bec
 
 * How to run the test suite: rspec
 
-* How to run the test suite: rails s
+* How to run the application: clone the repository, "bundle install" and "rails s" ;)
 
 The url of the recipes is: http://localhost:3000/recipes/
 
