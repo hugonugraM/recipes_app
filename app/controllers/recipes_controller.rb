@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       format.js {render layout: false} # Add this line to you respond_to block
+      format.html { render 'show'}
     end
   end
 
