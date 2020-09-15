@@ -1,7 +1,8 @@
 class Recipe
-  attr_accessor :title, :image, :list_of_tags, :description, :chef_name
+  attr_accessor :id, :title, :image, :list_of_tags, :description, :chef_name
 
-  def initialize(title, image, list_of_tags, description, chef_name = "")
+  def initialize(id, title, image, list_of_tags = [], description = "", chef_name = "")
+    @id = id
     @title = title
     @image = image
     @list_of_tags = list_of_tags
@@ -28,8 +29,15 @@ class Recipe
     all
   end
 
+  def self.find(id)
+    recipe = self.contentful.entry(id)
+    chef_name = recipe.fields['chef'].nil? ? "-" : recipe.chef.name
+    tags = recipe.fields['tags'].nil? ? [] : recipe.tags
+    Recipe.new(recipe.id, recipe.title, recipe.photo.url, tags.map{|tag| tag.name}.uniq, recipe.description, chef_name)
+  end
+
   def valid?
-    !@title.nil? && !@image.nil? && !@list_of_tags.nil? && !@description.nil? && !@chef_name.nil?
+    !@id.nil? && !@title.nil? && !@image.nil? && !@description.nil?
   end
 
 end
