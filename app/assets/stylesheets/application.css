@@ -3,3 +3,7 @@
   *= require_tree .
   *= require_self
 */
+
+.recipe_item {
+  margin-bottom: 1em;
+}

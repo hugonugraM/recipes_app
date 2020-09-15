@@ -1,1 +1,14 @@
-Hello
+<div class="row">
+  <div class="col-md-3">
+    <% @recipes.each do |recipe| %>
+      <div class="card recipe_item">
+        <img class="card-img-top" src= <%= recipe.image %> >
+        <div class="card-body">
+          <p class="card-text"> <%= recipe.title %> </p>
+        </div>
+      </div>
+    <% end %>
+  <div class="col-md-9">
+
+  </div>
+</div>
